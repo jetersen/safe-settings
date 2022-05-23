@@ -37,15 +37,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: Docker meta
+      - name: Docker metadata
         id: docker_meta
         uses: docker/metadata-action@v3.6.2
         with:
           images: |
-            ghcr.io/${{ github.repository_owner }}/${{ inputs.image_name }}
-            europe-west4-docker.pkg.dev/cpd-future/container-images/${{ inputs.image_name }}
+            ghcr.io/${{ github.repository_owner }}/safe-settings
           labels: |
-            org.opencontainers.image.vendor=CellPoint Digital
+            org.opencontainers.image.vendor=jetersen
             ${{ inputs.image_labels }}
           tags: |
             type=schedule
